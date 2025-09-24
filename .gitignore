@@ -24,3 +24,7 @@ pnpm-debug.log*
 
 # patches
 patches/
+
+# j
+bun.lock
+.nvimlog

@@ -23,17 +23,17 @@ import type {AnalyticsConfig} from "./types/analyticsTypes"
  *    All tags will be displayed in single page "/tags".
  */
 export const site = {
-  title: 'Astro Theme Yi', // required
+  title: 'how to', // required
   favicon: '/favicon.svg', // required
-  description: 'Welcome to my independent blog website! ',
-  author: "Astro-Yi", // required
+  description: 'Personal notes on minimal reproducible bugs',
+  author: "Julyfun", // required
   avatar: '/avatar.png', // required
-  url: 'https://astro-yi-nu.vercel.app', // required
+  url: 'https://how-to.fun', // required
   baseUrl: '', // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
-  motto: 'Actions speak louder than words.',
+  motto: '懒得换图标',
   recentBlogSize: 5,
   archivePageSize: 25,
-  postPageSize: 10,
+  postPageSize: 15,
   feedPageSize: 20,
   beian: '',
   asideTagsMaxSize: 0,
@@ -138,7 +138,7 @@ export const infoLinks = [
   {
     icon: 'ri-github-fill',
     name: 'github',
-    outlink: 'https://github.com/cirry/astro-yi',
+    outlink: 'https://github.com/julyfun/how-to',
   },
   {
     icon: 'ri-rss-fill',
