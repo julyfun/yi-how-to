@@ -6,7 +6,7 @@ let pager = []; // 实际显示的分页组件内容
 const {
   currentPage,
   totalPage,
-  prefixUrl = getUrl("/blog/"),
+  prefixUrl = getUrl("/"),
 } = Astro.props;
 
 if (totalPage === 1) {

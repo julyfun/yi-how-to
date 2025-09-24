@@ -21,7 +21,7 @@ export async function GET(context) {
       description: post.data.description? post.data.description : (post.body ? post.body.substring(0, 140).replace(/#/gi, "") + "..." : ""),
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `${getUrl("/blog/")}${post.slug}/`,
+      link: `${getUrl("/")}${post.slug}/`,
     })),
   });
 }
