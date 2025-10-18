@@ -3,9 +3,9 @@ import {defineCollection, z} from 'astro:content';
 const blog = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string(),
+    title: z.string().default("No meta"),
     description: z.string().optional().nullable(),
-    date: z.date(),
+    date: z.date().default(new Date("2002-10-29")),
     tags: z.array(z.string()).or(z.string()).optional().nullable(),
     category: z.array(z.string()).or(z.string()).default('uncategorized').nullable(),
     sticky: z.number().default(0).nullable(),
