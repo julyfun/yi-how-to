@@ -1,7 +1,7 @@
 {
   "framework": "astro",
-  "installCommand": "pnpm install",
-  "buildCommand": "npm run build",
+  "installCommand": "git submodule update --init && bun install",
+  "buildCommand": "bun run build",
   "outputDirectory": "dist",
   "headers": [
     {
