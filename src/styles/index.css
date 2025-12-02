@@ -89,7 +89,7 @@ menu {
   /*侧边栏每个栏目共有样式*/
   .aside-widget {
     @apply flex items-center w-full mb-2;
-    border-bottom:  1px solid rgba(var(--color-text), .3);
+    border-bottom: 1px solid rgba(var(--color-text), .3);
   }
 
   /* 侧边最近评论列表样式 */
@@ -246,7 +246,7 @@ menu {
   display: none !important;
 }
 
-.github-avatar{
+.github-avatar {
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -281,4 +281,14 @@ menu {
   svg.typst-doc {
     filter: invert(100%) sepia(0%) saturate(367%) hue-rotate(19deg) brightness(105%) contrast(101%);
   }
+}
+
+svg.typst-doc {
+  filter: invert(100%) sepia(0%) saturate(367%) hue-rotate(19deg) brightness(105%) contrast(101%);
+}
+
+/* 使块级公式不单独成行 */
+svg.typst-doc:not(.typst-inline) {
+  display: inline !important;
+  margin: 0 !important;
 }
