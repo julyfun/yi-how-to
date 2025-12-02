@@ -7,6 +7,8 @@ import remarkDirective from "remark-directive";
 import expressiveCode from "astro-expressive-code";
 import {pluginLineNumbers} from '@expressive-code/plugin-line-numbers'
 import {pluginCollapsibleSections} from '@expressive-code/plugin-collapsible-sections'
+import rehypeTypst from "@myriaddreamin/rehype-typst";
+import remarkMath from "remark-math";
 
 import {remarkModifiedTime,} from "./src/plugins/remark-modified-time.mjs";
 import {resetRemark} from "./src/plugins/reset-remark.js";
@@ -31,7 +33,7 @@ export default defineConfig({
     themeCssSelector: (theme) => `[data-theme="${theme.type}"]`
   }), mdx()],
   markdown: {
-    remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}), remarkCollapse({}), remarkGithubCard(), remarkButton(), remarkHtml()],
-    rehypePlugins: [lazyLoadImage],
+    remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}), remarkCollapse({}), remarkGithubCard(), remarkButton(), remarkHtml(), remarkMath],
+    rehypePlugins: [lazyLoadImage, rehypeTypst],
   }
 });
