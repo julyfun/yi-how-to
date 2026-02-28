@@ -23,14 +23,14 @@ import type {AnalyticsConfig} from "./types/analyticsTypes"
  *    All tags will be displayed in single page "/tags".
  */
 export const site = {
-  title: 'how to', // required
+  title: 'How to?', // required
   favicon: '/favicon.svg', // required
   description: 'Personal notes on minimal reproducible bugs',
   author: "Julyfun", // required
-  avatar: '/avatar.png', // required
+  avatar: '/avatar.jpg', // required
   url: 'https://how-to.fun', // required
   baseUrl: '', // When using GitHubPages, you must enter the repository name startWith '/'. e.g. '/astro-blog'
-  motto: '懒得换图标',
+  motto: '',
   recentBlogSize: 5,
   archivePageSize: 25,
   postPageSize: 15,
@@ -67,53 +67,30 @@ export const config = {
  */
 export const categories = [
   {
+    name: "Search",
+    iconClass: "ri-search-line",
+    href: "/search",
+  },
+  {
     name: "Blog",
     iconClass: "ri-draft-line",
     href: "/",
-  },
-  {
-    name: "Feed",
-    iconClass: "ri-lightbulb-flash-line",
-    href: "/feed/1",
   },
   // {
   //   name: "Memos",
   //   iconClass: "ri-quill-pen-line",
   //   href: "/memos",
   // },
+  // {
+  //   name: "Archive",
+  //   iconClass: "ri-archive-line",
+  //   href: "/archive/1",
+  // },
   {
-    name: "Archive",
-    iconClass: "ri-archive-line",
-    href: "/archive/1",
+    name: 'About Me',
+    iconClass: 'ri-information-line',
+    href: '/about',
   },
-  {
-    name: "Message",
-    iconClass: "ri-chat-1-line",
-    href: "/message",
-  },
-  {
-    name: "Search",
-    iconClass: "ri-search-line",
-    href: "/search",
-  },
-  {
-    name: "More",
-    iconClass: "ri-more-fill",
-    href: "javascript:void(0);",
-    children: [
-      {
-        name: 'About',
-        iconClass: 'ri-information-line',
-        href: '/about',
-      },
-      {
-        name: 'Friends',
-        iconClass: 'ri-user-5-line',
-        href: '/friends',
-        target: '_self',
-      },
-    ]
-  }
 ]
 
 /**
@@ -121,24 +98,14 @@ export const categories = [
  */
 export const infoLinks = [
   {
-    icon: 'ri-telegram-fill',
-    name: 'telegram',
-    outlink: '',
+    icon: 'ri-github-fill',
+    name: 'github',
+    outlink: 'https://github.com/julyfun',
   },
   {
     icon: 'ri-twitter-fill',
     name: 'twitter',
     outlink: '',
-  },
-  {
-    icon: 'ri-instagram-fill',
-    name: 'instagram',
-    outlink: '',
-  },
-  {
-    icon: 'ri-github-fill',
-    name: 'github',
-    outlink: 'https://github.com/julyfun/how-to',
   },
   {
     icon: 'ri-rss-fill',
