@@ -4,23 +4,37 @@ comment: false
 ---
 
 <style>
-.cv { max-width: 720px; font-family: Georgia, "Times New Roman", serif; color: inherit; line-height: 1.7; }
-.cv h1 { font-size: 1.6rem; font-weight: 700; margin: 0 0 0.2rem; letter-spacing: 0.02em; }
-.cv .subtitle { font-size: 0.95rem; color: #666; margin-bottom: 1.6rem; }
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+.cv { max-width: 720px; font-family: "Source Sans 3", "Source Sans Pro", sans-serif; color: inherit; line-height: 1.7; }
+.cv h1 { font-size: 2em; font-weight: 700; margin: 0 0 0.2rem; letter-spacing: 0.02em; }
+.cv .subtitle { color: #666; margin-bottom: 1.6rem; }
 .cv section { margin-bottom: 2rem; }
-.cv h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid currentColor; padding-bottom: 0.25rem; margin-bottom: 1rem; opacity: 0.85; }
+.cv h2 { font-weight: 400; letter-spacing: 0.02em; border-bottom: 1px solid currentColor; padding-bottom: 0.25rem; margin-bottom: 1rem; opacity: 0.85; }
 .cv .entry { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; }
 .cv .entry-main { flex: 1; }
 .cv .entry-title { font-weight: 600; }
-.cv .entry-sub { font-size: 0.9rem; opacity: 0.75; }
-.cv .entry-date { font-size: 0.88rem; white-space: nowrap; opacity: 0.65; font-style: italic; }
-.cv .award-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.92rem; padding: 0.2rem 0; }
+.cv .entry-sub { opacity: 0.75; }
+.cv .entry-date { white-space: nowrap; opacity: 0.65; }
+.cv .award-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.2rem 0; }
 .cv .award-name { flex: 1; }
 .cv .award-level { font-weight: 600; color: #b8860b; white-space: nowrap; }
-.cv .award-date { font-size: 0.85rem; opacity: 0.6; white-space: nowrap; font-style: italic; }
-.cv .skills-grid { display: grid; grid-template-columns: 7rem 1fr; gap: 0.4rem 1rem; font-size: 0.93rem; }
+.cv .award-date { opacity: 0.6; white-space: nowrap; }
+.cv .skills-grid { display: grid; grid-template-columns: 7rem 1fr; gap: 0.4rem 1rem; }
 .cv .skills-label { font-weight: 600; opacity: 0.75; }
-.cv blockquote { border-left: 3px solid #aaa; margin: 0 0 0; padding: 0.6rem 1rem; font-style: italic; font-size: 0.95rem; opacity: 0.85; }
+.cv blockquote { border-left: 3px solid #aaa; margin: 0 0 0; padding: 0.6rem 1rem; opacity: 0.85; }
+.cv .paper { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+.cv .paper-thumb { width: 160px; flex-shrink: 0; border-radius: 4px; overflow: hidden; }
+.cv .paper-thumb img { width: 100%; height: auto; display: block; }
+.cv .paper-body { flex: 1; }
+.cv .paper-title { font-weight: 600; }
+.cv .paper-desc { opacity: 0.75; margin: 0.1rem 0; }
+.cv .paper-authors { opacity: 0.65; }
+.cv .paper-links { margin-top: 0.3rem; }
+.cv .paper-links a { color: #3b82f6; text-decoration: none; }
+.cv .paper-links a:hover { text-decoration: underline; }
+.cv .paper-link-sep { opacity: 0.4; margin: 0 0.3rem; }
+.cv .paper-link-tba { opacity: 0.5; }
+@media (max-width: 540px) { .cv .paper { flex-direction: column; } .cv .paper-thumb { width: 100%; } }
 @media (max-width: 540px) {
   .cv .entry, .cv .award-row { flex-direction: column; gap: 0.1rem; }
   .cv .entry-date, .cv .award-date { opacity: 0.5; }
@@ -32,9 +46,9 @@ comment: false
 <h1>Junjie Fang | 方俊杰</h1>
 <p class="subtitle">Graduate Student · MVIG Lab, Shanghai Jiao Tong University</p>
 
-<blockquote>
+<p>
 I am a graduate student in Electronic and Information Engineering at Shanghai Jiao Tong University, affiliated with the MVIG research group under the supervision of Professor Lu Cewu. My research interests lie in artificial intelligence and embodied AI.
-</blockquote>
+</p>
 
 <section>
 <h2>Education</h2>
@@ -53,6 +67,21 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
     <div class="entry-sub">Shanghai Jiao Tong University</div>
   </div>
   <div class="entry-date">2021 – 2025</div>
+</div>
+</section>
+
+<section>
+<h2>Research</h2>
+
+<div class="paper">
+  <div class="paper-thumb">
+    <img src="https://robo-pocket.github.io/static/images/state_coverage.png" alt="RoboPocket teaser" />
+  </div>
+  <div class="paper-body">
+    <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
+    <div class="paper-authors">Junjie Fang*, Wendi Chen*, Han Xue*, Fangyuan Zhou*, Tian Le, Yi Wang, Yuting Zhang, Jun Lv, Chuan Wen, Cewu Lu</div>
+    <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Website</a> <span class="paper-link-sep">|</span> <span class="paper-link-tba">Arxiv (TBA)</span></div>
+  </div>
 </div>
 </section>
 
