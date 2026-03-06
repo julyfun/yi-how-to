@@ -80,7 +80,8 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <div class="paper-body">
     <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
     <div class="paper-authors">Junjie Fang*, Wendi Chen*, Han Xue*, Fangyuan Zhou*, Tian Le, Yi Wang, Yuting Zhang, Jun Lv, Chuan Wen, Cewu Lu</div>
-    <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Website</a> <span class="paper-link-sep">|</span> <span class="paper-link-tba">Arxiv (TBA)</span></div>
+    <div class="paper-desc">arXiv 2026</div>
+    <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Webpage</a> <span class="paper-link-sep">|</span> <a href="https://arxiv.org/abs/2603.05504" target="_blank">arXiv</a></div>
   </div>
 </div>
 </section>
@@ -90,7 +91,7 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title"><a href="https://rm.cv.fans" target="_blank">rm.cv.fans</a></div>
+    <div class="entry-title"><a href="https://github.com/julyfun/rm.cv.fans" target="_blank">rm.cv.fans</a></div>
     <div class="entry-sub">RoboMaster computer vision community resource site</div>
   </div>
   <div class="entry-date">Sep. 2021 – Present</div>
