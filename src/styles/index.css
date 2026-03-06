@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import url('./github-markdown.css');
 @import "remixicon/fonts/remixicon.css";
 @import "tocbot/dist/tocbot.css";
@@ -22,6 +23,7 @@ html {
 
 body {
   height: 100%;
+  font-family: "Source Sans 3", "Source Sans Pro", sans-serif;
 }
 
 ol,
