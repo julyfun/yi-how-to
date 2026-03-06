@@ -105,7 +105,7 @@ export const infoLinks = [
   {
     icon: 'ri-twitter-fill',
     name: 'twitter',
-    outlink: '',
+    outlink: 'https://x.com/junjie_fang_',
   },
   {
     icon: 'ri-rss-fill',
