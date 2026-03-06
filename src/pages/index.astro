@@ -6,6 +6,7 @@ import {orderBySticky} from "@/utils/orderBySticky";
 import {site} from '@/consts'
 import Pagination from "@/components/Pagination.astro";
 import {ceil, divide} from 'lodash-es'
+import {t} from '@/i18n/utils'
 
 let currentPage = 1
 let blogs = await getCollectionByName("blog");
@@ -18,16 +19,87 @@ if (sortedPosts.length > site.postPageSize) {
 ---
 
 <IndexPage>
-  {
-    sortedPosts.map(blog =>
-      <PostView blog={blog}></PostView>)
-  }
-  {
-    totalPage > 1 ?
-      <Pagination
-        currentPage={currentPage}
-        totalPage={totalPage}
-      /> : ''
-  }
+  <div class="relative mb-6">
+    <span class="absolute inset-y-0 flex items-center pl-2 opacity-75">
+      <i class="ri-search-line text-skin-active ml-1"></i>
+    </span>
+    <input
+      maxlength="24"
+      id="blog-search"
+      class="block w-full rounded border border-opacity-40 bg-skin-fill text-skin-base py-3 pl-10 pr-3 placeholder:italic placeholder:text-opacity-75 focus:border-skin-accent focus:outline-none"
+      placeholder={t('search.placeholder')}
+      type="search"
+    />
+  </div>
+  <p id="blog-searchReadout"></p>
+  <section id="blog-searchResults" class="hidden" aria-label="Search Results">
+    <div id="blog-resultsList"></div>
+  </section>
+  <div id="blog-postList">
+    {sortedPosts.map(blog => <PostView blog={blog}></PostView>)}
+    {totalPage > 1 ? <Pagination currentPage={currentPage} totalPage={totalPage} /> : ''}
+  </div>
 </IndexPage>
+
+<script>
+  import {t} from '../i18n/utils'
+  import DOMPurify from "dompurify";
+  import Fuse from "fuse.js";
+  import {isNumber} from 'lodash-es'
+  import {formatDate} from '../utils/formatDate'
+  import {dealLabel} from "../utils/dealLabel";
+  import getUrl from "../utils/getUrl";
+
+  let SEARCH_DATA = '';
+  let FUSE_INSTANCE = '';
+  const FUSE_OPTIONS = {
+    includeScore: true, shouldSort: true, threshold: 0.5,
+    keys: [{name: 'title', weight: 1}, {name: 'description', weight: 0.75}]
+  }
+
+  const searchInput = document.querySelector('#blog-search');
+  const searchReadout = document.querySelector('#blog-searchReadout');
+  const resultsList = document.querySelector('#blog-resultsList');
+  const searchResults = document.querySelector('#blog-searchResults');
+  const postList = document.querySelector('#blog-postList');
+
+  searchInput.addEventListener("input", async () => {
+    const searchTerm = DOMPurify.sanitize(searchInput.value);
+    if (!searchTerm) {
+      postList.classList.remove('hidden');
+      searchResults.classList.add('hidden');
+      searchReadout.innerHTML = '';
+      resultsList.innerHTML = '';
+      return;
+    }
+    postList.classList.add('hidden');
+    searchResults.classList.remove('hidden');
+
+    if (!SEARCH_DATA) {
+      const res = await fetch(getUrl("/search.json"));
+      SEARCH_DATA = await res.json();
+    }
+    if (SEARCH_DATA && !FUSE_INSTANCE) FUSE_INSTANCE = new Fuse(SEARCH_DATA, FUSE_OPTIONS);
+    if (!FUSE_INSTANCE) return;
+
+    const results = FUSE_INSTANCE.search(searchTerm);
+    searchReadout.innerHTML = isNumber(results.length)
+      ? `<div class="my-2">${t('search.searchLabelOne')}<span class="px-2 font-bold text-skin-active">${results.length}</span>${t('search.searchLabelTwo')}</div>`
+      : '';
+    resultsList.innerHTML = results.map(r => {
+      const {title, description, date, slug, category, tags} = r.item;
+      const reg = new RegExp(searchTerm, 'gi');
+      const hl = (s) => s ? s.replace(reg, m => `<span class="text-skin-active font-bold">${m}</span>`) : '';
+      const categoryStr = dealLabel(category).filter(c => c !== 'uncategorized')
+        .map(c => `<a class="mr-2 hover:text-skin-active" href=${getUrl("/category/") + c}><i class="ri-folder-3-line mr-1"></i>${c}</a>`).join('');
+      const tagsStr = dealLabel(tags)
+        .map(tag => `<a class="mr-2 hover:text-skin-active" href=${getUrl("/tags/") + tag}><i class="ri-hashtag mr-1"></i>${tag}</a>`).join('');
+      return `<div class="my-5">
+        <a class="text-xl underline-offset-4 decoration-skin-base decoration-wavy hover:underline hover:decoration-sky-500 font-bold" href=${getUrl("/") + slug}>${hl(title)}</a>
+        <div class="flex items-center my-2"><div class="flex items-center mr-2"><i class="ri-calendar-2-fill mr-1"></i>${formatDate(date)}</div>${categoryStr}${tagsStr}</div>
+        <p class="break-all mb-4">${hl(description)}</p>
+      </div><div class="divider-horizontal-mini"></div>`;
+    }).join('');
+  });
+</script>
 
