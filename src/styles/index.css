@@ -277,13 +277,7 @@ menu {
   display: inline;
 }
 
-@media (prefers-color-scheme: dark) {
-  svg.typst-doc {
-    filter: invert(100%) sepia(0%) saturate(367%) hue-rotate(19deg) brightness(105%) contrast(101%);
-  }
-}
-
-svg.typst-doc {
+html[data-theme="dark"] svg.typst-doc {
   filter: invert(100%) sepia(0%) saturate(367%) hue-rotate(19deg) brightness(105%) contrast(101%);
 }
 
