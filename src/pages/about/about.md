@@ -104,6 +104,14 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   </div>
   <div class="entry-date">Dec. 2024</div>
 </div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">robotoy</div>
+    <div class="entry-sub">A new fast interpolation method and utilities for robot policy rollout</div>
+  </div>
+  <div class="entry-date">Feb. 2025</div>
+</div>
 </section>
 
 <section>
@@ -150,7 +158,7 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <span class="award-date">Jun. 2022</span>
 </div>
 <div class="award-row">
-  <span class="award-name">SPEIT Academic Scholarship</span>
+  <span class="award-name">SJTU SPEIT Academic Scholarship</span>
   <span class="award-level">–</span>
   <span class="award-date">Jun. 2024</span>
 </div>
