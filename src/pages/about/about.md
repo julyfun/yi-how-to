@@ -138,13 +138,13 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 <h2>Honors &amp; Awards</h2>
 
 <div class="award-row">
-  <span class="award-name">China Collegiate Programming Contest (CCPC), Harbin Regional</span>
-  <span class="award-level">Gold Medal</span>
+  <span class="award-name">China Collegiate Programming Contest (CCPC), Harbin Regional </span>
+  <span class="award-level">Gold Medal (128.44/17)</span>
   <span class="award-date">Nov. 2021</span>
 </div>
 <div class="award-row">
   <span class="award-name">International Collegiate Programming Contest (ICPC), Asia Regional</span>
-  <span class="award-level">Silver Medal</span>
+  <span class="award-level">Silver Medal (80.56/51)</span>
   <span class="award-date">Oct. 2021</span>
 </div>
 <div class="award-row">
@@ -169,7 +169,7 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 </div>
 <div class="award-row">
   <span class="award-name">National Olympiad in Informatics in Provinces (NOIP), Zhejiang</span>
-  <span class="award-level">First Prize</span>
+  <span class="award-level">First Prize (462.00/562)</span>
   <span class="award-date">Nov. 2018</span>
 </div>
 </section>
