@@ -148,7 +148,7 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <span class="award-date">Oct. 2021</span>
 </div>
 <div class="award-row">
-  <span class="award-name">RoboMaster National Championship</span>
+  <span class="award-name">RoboMaster National Championship (Head of the CV Department)</span>
   <span class="award-level">1st Place</span>
   <span class="award-date">Aug. 2023</span>
 </div>
