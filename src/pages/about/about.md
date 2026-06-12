@@ -47,7 +47,7 @@ comment: false
 <p class="subtitle">Graduate Student · MVIG Lab, Shanghai Jiao Tong University</p>
 
 <p>
-I am a graduate student in Electronic and Information Engineering at Shanghai Jiao Tong University, affiliated with the MVIG research group under the supervision of Professor Lu Cewu. My research interests lie in artificial intelligence and embodied AI.
+I am a graduate student in Electronic and Information Engineering at Shanghai Jiao Tong University, affiliated with the MVIG research group under the supervision of Professor Lu Cewu. As a member of the SJTU ACM school team, I won the CCPC gold medal and led the RoboMaster school team's robot vision department to win the national championship. My research interests lie in artificial intelligence and embodied AI.
 </p>
 
 <section>
@@ -75,7 +75,7 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="paper">
   <div class="paper-thumb">
-    <img src="https://robo-pocket.github.io/static/images/state_coverage.png" alt="RoboPocket teaser" />
+    <img src="https://how-to-1258460161.cos.ap-shanghai.myqcloud.com/how-to/20260612220526105.png" alt="RoboPocket teaser" />
   </div>
   <div class="paper-body">
     <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
