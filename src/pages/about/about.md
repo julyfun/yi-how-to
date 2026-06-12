@@ -47,7 +47,7 @@ comment: false
 <p class="subtitle">Graduate Student · MVIG Lab, Shanghai Jiao Tong University</p>
 
 <p>
-I am a graduate student in Electronic and Information Engineering at Shanghai Jiao Tong University, affiliated with the MVIG research group under the supervision of Professor Lu Cewu. As a member of the SJTU ACM school team, I won the CCPC gold medal and led the RoboMaster school team's robot vision department to win the national championship. My research interests lie in artificial intelligence and embodied AI.
+I am a graduate student in Electronic and Information Engineering at Shanghai Jiao Tong University, affiliated with the MVIG research group under the supervision of Professor Lu Cewu. As a member of the SJTU ACM school team, I won the CCPC gold medal and led our RoboMaster team's robot vision department to win the national championship. My research interests lie in artificial intelligence and embodied AI.
 </p>
 
 <section>
