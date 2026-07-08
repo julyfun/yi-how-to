@@ -12,7 +12,12 @@ comment: false
 .cv h2 { font-weight: 400; letter-spacing: 0.02em; border-bottom: 1px solid currentColor; padding-bottom: 0.25rem; margin-bottom: 1rem; opacity: 0.85; }
 .cv .entry { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.5rem; }
 .cv .entry-main { flex: 1; }
-.cv .entry-title { font-weight: 600; }
+.cv .entry-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .cv .entry-sub { opacity: 0.75; }
 .cv .entry-date { white-space: nowrap; opacity: 0.65; }
 .cv .award-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.2rem 0; }
@@ -91,24 +96,40 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title"><a href="https://github.com/julyfun/rm.cv.fans" target="_blank">rm.cv.fans</a></div>
-    <div class="entry-sub">RoboMaster computer vision community resource site</div>
+    <div class="entry-title">rm.cv.fans <img src="https://img.shields.io/github/stars/julyfun/rm.cv.fans" alt="stars"></div>
+    <div class="entry-sub">A time-tested RoboMaster detecting and tracking system.</div>
   </div>
-  <div class="entry-date">Sep. 2021 – Present</div>
+  <div class="entry-date">Sep. 2022 – Present</div>
 </div>
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title">waveshare-realsense-smart-robot</div>
-    <div class="entry-sub">Embedded robotics project with Intel RealSense depth sensing</div>
+    <div class="entry-title">SJTU-RoboMaster-Team.github.io <img src="https://img.shields.io/github/stars/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io" alt="stars"></div>
+    <div class="entry-sub">Our technical blog.</div>
   </div>
   <div class="entry-date">Dec. 2024</div>
 </div>
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title">robotoy</div>
-    <div class="entry-sub">A new fast interpolation method and utilities for robot policy rollout</div>
+    <div class="entry-title">RoboPocket</div>
+    <div class="entry-sub">An online inference & finetuning system equipped with portable manipulation interface.</div>
+  </div>
+  <div class="entry-date">Jan. 2026</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">robotoy<img src="https://img.shields.io/github/stars/julyfun/robotoy" alt="stars"></div>
+    <div class="entry-sub">A new fast interpolation method and utilities for robot policy rollout.</div>
+  </div>
+  <div class="entry-date">Feb. 2025</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">How-to<img src="https://img.shields.io/github/stars/julyfun/how-to" alt="stars"></div>
+    <div class="entry-sub">Detailed notes and projects on technology and courses including CS336 and CS285.</div>
   </div>
   <div class="entry-date">Feb. 2025</div>
 </div>
