@@ -1,0 +1,231 @@
+---
+import {t} from '@/i18n/utils';
+const {home = false} = Astro.props;
+---
+<div class="mb-6">
+  <label for="search" class="block pt-6 text-2xl mb-4 text-skin-base">{t('search.search')}</label>
+  <div class="relative">
+    <span class="absolute inset-y-0 flex items-center pl-2 opacity-75" aria-hidden="true">
+      <i class="ri-search-line text-skin-active ml-1"></i>
+    </span>
+    <input id="search" class="block w-full rounded border border-opacity-40 mt-4 bg-skin-fill text-skin-base py-3 pl-10 pr-3" placeholder={t('search.placeholder')} type="search" name="search" autofocus={!home} autocomplete="off" />
+  </div>
+  <p id="searchReadout" role="status" aria-live="polite" class="my-2"></p>
+  <button id="retry" hidden class="underline my-2" type="button">{t('search.retry')}</button>
+  <section aria-label="Search Results" aria-busy="false" id="searchResults">
+    <div id="resultsList"></div>
+  </section>
+  <button id="loadMore" hidden class="my-4 underline" type="button">{t('search.more')}</button>
+</div>
+<style is:global>
+  #resultsList mark { background: transparent; color: inherit; font-weight: 700; text-decoration: underline; }
+  #resultsList a, #resultsList p { overflow-wrap: anywhere; }
+</style>
+<script>
+  import {t} from '../i18n/utils';
+  import {formatDate} from '../utils/formatDate';
+  import {createMetadataSearch, highlightText, matchingSnippet, articleUrl} from '../utils/search.mjs';
+
+  import {createFulltextEngine} from '../utils/fulltext-client.mjs';
+
+  type Metadata = {title: string; slug?: string; date?: string; description?: string; body?: string; tags?: string | string[]; category?: string | string[]};
+  type ResultData = {url: string; meta: Metadata; plain?: string};
+  type Result = {item?: Metadata; data?: () => Promise<ResultData>};
+  type Engine = {failed: boolean; search: (query: string) => Promise<{results: Result[]}>; destroy: () => void};
+  const input = document.querySelector<HTMLInputElement>('#search')!;
+  const readout = document.querySelector<HTMLElement>('#searchReadout')!;
+  const list = document.querySelector<HTMLElement>('#resultsList')!;
+  const section = document.querySelector<HTMLElement>('#searchResults')!;
+  const more = document.querySelector<HTMLButtonElement>('#loadMore')!;
+  const retry = document.querySelector<HTMLButtonElement>('#retry')!;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  let metadataPromise: Promise<ReturnType<typeof createMetadataSearch>> | undefined;
+  let fulltextEngine: Engine | undefined;
+  let generation = 0;
+  let timer: ReturnType<typeof setTimeout>;
+  let composing = false;
+  let results: Result[] = [];
+  let cursor = 0;
+  let currentQuery = '';
+  let partial = false;
+  let seen = new Map<string, HTMLElement>();
+
+  function metadata() {
+    return metadataPromise ??= fetch(`${base}/search.json`, {signal: AbortSignal.timeout(10000)}).then(async (response) => {
+      if (!response.ok) throw new Error(`Search metadata: ${response.status}`);
+      return createMetadataSearch(await response.json());
+    }).catch((error) => { metadataPromise = undefined; throw error; });
+  }
+
+  async function fulltext() {
+    if (fulltextEngine?.failed) fulltextEngine = undefined;
+    return fulltextEngine ??= createFulltextEngine(base);
+  }
+
+  const resultKey = (url: string) => decodeURI(new URL(url, location.origin).pathname).replace(/\/$/, '');
+
+  function updateReadout() {
+    readout.textContent = seen.size ? t('search.shown').replace('{count}', String(seen.size)) : t('search.empty');
+    if (partial) readout.textContent += ` (${t('search.partial')})`;
+  }
+
+  async function renderPage(version: number) {
+    more.disabled = true;
+    section.setAttribute('aria-busy', 'true');
+    let added = 0;
+    try {
+      // Load only visible fragments; URL-based deduplication preserves title-first order.
+      while (cursor < results.length && added < 20) {
+        const batch = await Promise.all(results.slice(cursor, cursor + 20 - added).map(async (result): Promise<ResultData> => {
+          if (result.item) return {url: `${base}/${result.item.slug}`, meta: result.item, plain: result.item.description || matchingSnippet(result.item.body, currentQuery) || result.item.slug || ''};
+          return result.data!();
+        }));
+        if (version !== generation) return;
+        cursor += batch.length;
+        for (const data of batch) {
+          const key = resultKey(data.url);
+          const existing = seen.get(key);
+          if (existing) {
+            const snippet = existing.querySelector('[data-snippet]')!;
+            if (data.plain) highlightText(snippet, data.plain, currentQuery);
+            continue;
+          }
+          const row = document.createElement('article');
+          row.className = 'my-5 border-b border-current/20 pb-4';
+          const link = document.createElement('a');
+          link.className = 'text-xl font-bold hover:underline';
+          link.href = articleUrl(data.url, location.origin);
+          highlightText(link, data.meta.title || data.url, currentQuery);
+          row.append(link);
+          if (data.meta.date) {
+            const date = document.createElement('p');
+            date.className = 'text-sm my-2';
+            date.textContent = formatDate(data.meta.date);
+            row.append(date);
+          }
+          const snippet = document.createElement('p');
+          snippet.dataset.snippet = '';
+          snippet.className = 'my-2';
+          highlightText(snippet, data.plain || '', currentQuery);
+          row.append(snippet);
+          for (const [kind, value] of [['tags', data.meta.tags], ['category', data.meta.category]] as const) {
+            const labels = Array.isArray(value) ? value : (value || '').split(',');
+            for (const label of labels.filter((v) => v && v !== 'uncategorized')) {
+              const tag = document.createElement('a');
+              tag.className = 'text-sm mr-3 hover:underline';
+              tag.href = `${base}/${kind}/${encodeURIComponent(label)}`;
+              tag.textContent = `${kind === 'tags' ? '#' : ''}${label}`;
+              row.append(tag);
+            }
+          }
+          list.append(row);
+          seen.set(key, row);
+          added++;
+        }
+      }
+      more.hidden = cursor >= results.length;
+      updateReadout();
+    } catch (error) {
+      if (version !== generation) return;
+      fulltextEngine?.destroy();
+      fulltextEngine = undefined;
+      console.error(error);
+      readout.textContent = t('search.error');
+      retry.hidden = false;
+    } finally {
+      if (version === generation) {
+        more.disabled = false;
+        section.setAttribute('aria-busy', 'false');
+      }
+    }
+  }
+
+  async function run(query: string, version: number) {
+    readout.textContent = t('search.loading');
+    section.setAttribute('aria-busy', 'true');
+    let metaResult: PromiseSettledResult<ReturnType<typeof createMetadataSearch>> | undefined;
+    let fullResult: PromiseSettledResult<{results: Result[]}> | undefined;
+    let publishing = Promise.resolve();
+    // Serialize renders while allowing either source to publish without the other.
+    const publish = () => {
+      publishing = publishing.then(async () => {
+        if (version !== generation) return;
+        const complete = Boolean(metaResult && fullResult);
+        const exact = metaResult?.status === 'fulfilled' ? metaResult.value(query) : [];
+        const full = fullResult?.status === 'fulfilled' ? fullResult.value.results : [];
+        results = [...exact, ...full];
+        if (complete && !results.length && metaResult?.status === 'fulfilled') results = metaResult.value(query, true);
+        currentQuery = query;
+        cursor = 0;
+        seen = new Map();
+        list.replaceChildren();
+        partial = metaResult?.status === 'rejected' || fullResult?.status === 'rejected';
+        retry.hidden = !partial;
+        await renderPage(version);
+        if (version !== generation) return;
+        section.setAttribute('aria-busy', String(!complete));
+        if (metaResult?.status === 'rejected' && fullResult?.status === 'rejected') readout.textContent = t('search.error');
+        if (!complete) {
+          readout.textContent = seen.size ? `${readout.textContent} ${t('search.loading')}` : t('search.loading');
+          more.hidden = true;
+        }
+      });
+      return publishing;
+    };
+    try {
+      const fullSearch = import.meta.env.DEV ? Promise.resolve({results: []}) : fulltext().then(async (engine) => {
+          try { return await engine.search(query); }
+          catch (error) {
+            if (version === generation) {
+              await engine.destroy();
+              fulltextEngine = undefined;
+            }
+            throw error;
+          }
+        });
+      await Promise.all([
+        metadata().then(
+          (value) => { metaResult = {status: 'fulfilled', value}; },
+          (reason) => { metaResult = {status: 'rejected', reason}; },
+        ).then(publish),
+        fullSearch.then(
+          (value) => { fullResult = {status: 'fulfilled', value}; },
+          (reason) => { fullResult = {status: 'rejected', reason}; },
+        ).then(publish),
+      ]);
+    } catch (error) {
+      if (version !== generation) return;
+      console.error(error);
+      readout.textContent = t('search.error');
+      retry.hidden = false;
+    } finally {
+      if (version === generation) section.setAttribute('aria-busy', 'false');
+    }
+  }
+
+  function schedule(immediate = false, updateUrl = true) {
+    clearTimeout(timer);
+    const version = ++generation;
+    const query = input.value.trim();
+    document.querySelector('#blog-postList')?.classList.toggle('hidden', Boolean(query));
+    list.replaceChildren();
+    readout.textContent = '';
+    more.hidden = true;
+    retry.hidden = true;
+    section.setAttribute('aria-busy', 'false');
+    if (updateUrl) {
+      const url = new URL(location.href);
+      if (query) url.searchParams.set('q', query); else url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+    }
+    if (query && !composing) timer = setTimeout(() => run(query, version), immediate ? 0 : 200);
+  }
+  input.addEventListener('compositionstart', () => { composing = true; clearTimeout(timer); ++generation; });
+  input.addEventListener('compositionend', () => { composing = false; schedule(); });
+  input.addEventListener('input', () => schedule());
+  more.addEventListener('click', () => renderPage(generation));
+  retry.addEventListener('click', () => schedule(true));
+  window.addEventListener('popstate', () => { input.value = new URLSearchParams(location.search).get('q') || ''; schedule(true, false); });
+  input.value = new URLSearchParams(location.search).get('q') || '';
+  schedule(true, false);
+</script>

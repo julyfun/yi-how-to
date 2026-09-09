@@ -35,7 +35,14 @@ export  let cs = {
   'post.lastUpdatedTip2':'a vzhledem k uplynulému času již některé informace nemusí být aktuální.',
   'search.labelOne':'Zobrazení článků pod',
   'search.labelTwo':'',
-  'search.placeholder': 'Zadejte klíčová slova názvu nebo abstraktu',
+  'search.placeholder': 'Hledat články',
+  'search.loading': 'Vyhledávání...',
+  'search.shown': 'Zobrazeno {count} výsledků',
+  'search.empty': 'Žádné výsledky',
+  'search.partial': 'Některé výsledky jsou dočasně nedostupné.',
+  'search.error': 'Výsledky se nepodařilo načíst.',
+  'search.retry': 'Zkusit znovu',
+  'search.more': 'Načíst další',
   'search.searchLabelOne':'Nalezeno ',
   'search.searchLabelTwo': ' článek(ů) celkem',
   'search.search': 'Hledat',
@@ -49,5 +56,4 @@ export  let cs = {
   'title.words':' Slov',
   'more': 'Více'
 }
-
 

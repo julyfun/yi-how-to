@@ -10,6 +10,8 @@ async function getBlogs(context) {
       date: blog.data.date,
       category: blog.data.category,
       tags: blog.data.tags,
+      // Development has no built HTML index; keep production metadata small.
+      ...(import.meta.env.DEV ? {body: blog.body} : {}),
     }
   })
 }

@@ -18,12 +18,13 @@ import {remarkGithubCard} from './src/plugins/remark-github-card.js'
 import {lazyLoadImage} from "./src/plugins/lazy-load-image.js";
 import {remarkButton} from "./src/plugins/remark-button.js";
 import {remarkHtml} from "./src/plugins/remark-html.js";
+import {searchIndex} from './src/plugins/search-index.mjs';
 
 export default defineConfig({
   site: site.url,
   base: import.meta.env.PROD ? site.baseUrl : '',
   trailingSlash: "never",
-  integrations: [sitemap(), tailwind(), expressiveCode({
+  integrations: [searchIndex(), sitemap(), tailwind(), expressiveCode({
     plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
     themes: ["github-dark", "github-light"],
     styleOverrides: {
