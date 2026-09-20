@@ -47,9 +47,10 @@ menu {
   :root,
   html[data-theme="light"] {
     --color-fill: 241, 241, 241;
-    --color-fill-secondary: 251, 251, 251;
+    --color-fill-secondary: 252, 252, 253;
     --color-card: 241, 241, 241;
-    --color-text: 80, 73, 69;
+    /* sRGB: 0.143413 0.097923 0.093191 */
+    --color-text: 36.570315, 24.970365, 23.763705;
     --color-text-dodge: 150, 150, 150;
     --color-text-active: 181, 118, 20;
     --color-border: 104, 157, 106;
