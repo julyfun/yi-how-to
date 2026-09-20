@@ -1,0 +1,12 @@
+---
+import IndexPage from '@/layouts/IndexPage.astro';
+import Search from '@/components/Search.astro';
+import {Content, frontmatter} from '@/pages/about/about.md';
+---
+
+<IndexPage frontmatter={frontmatter}>
+  <Search home hideTitle />
+  <article id="about-content" class="markdown-body" data-search-idle>
+    <Content />
+  </article>
+</IndexPage>

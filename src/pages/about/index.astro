@@ -1,11 +1,5 @@
 ---
-import IndexPage from "@/layouts/IndexPage.astro";
-const posts = Object.values(import.meta.glob("./about.md", { eager: true }));
-let {Content, frontmatter} = posts[0];
+import AboutPage from '@/layouts/AboutPage.astro';
 ---
 
-<IndexPage frontmatter={frontmatter}>
-  <article class="markdown-body">
-    <Content/>
-  </article>
-</IndexPage>
+<AboutPage />

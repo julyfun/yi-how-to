@@ -1,9 +1,9 @@
 ---
 import {t} from '@/i18n/utils';
-const {home = false} = Astro.props;
+const {home = false, hideTitle = false} = Astro.props;
 ---
 <div class="mb-6">
-  <label for="search" class="block pt-6 text-2xl mb-4 text-skin-base">{t('search.search')}</label>
+  <label for="search" class={hideTitle ? 'sr-only' : 'block pt-6 text-2xl mb-4 text-skin-base'}>{t('search.search')}</label>
   <div class="relative">
     <span class="absolute inset-y-0 flex items-center pl-2 opacity-75" aria-hidden="true">
       <i class="ri-search-line text-skin-active ml-1"></i>
@@ -207,7 +207,9 @@ const {home = false} = Astro.props;
     clearTimeout(timer);
     const version = ++generation;
     const query = input.value.trim();
-    document.querySelector('#blog-postList')?.classList.toggle('hidden', Boolean(query));
+    document.querySelectorAll('[data-search-idle]').forEach((content) => {
+      content.classList.toggle('hidden', input.value.length > 0);
+    });
     list.replaceChildren();
     readout.textContent = '';
     more.hidden = true;

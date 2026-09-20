@@ -4,8 +4,7 @@ comment: false
 ---
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-.cv { max-width: 720px; font-family: "Source Sans 3", "Source Sans Pro", sans-serif; color: inherit; line-height: 1.7; }
+.cv { max-width: 720px; font-family: inherit; color: inherit; line-height: 1.7; }
 .cv h1 { font-size: 2em; font-weight: 700; margin: 0 0 0.2rem; letter-spacing: 0.02em; }
 .cv .subtitle { color: #666; margin-bottom: 1.6rem; }
 .cv section { margin-bottom: 2rem; }

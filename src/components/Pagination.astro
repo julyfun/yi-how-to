@@ -7,7 +7,9 @@ const {
   currentPage,
   totalPage,
   prefixUrl = getUrl("/"),
+  firstPageUrl = prefixUrl + "1",
 } = Astro.props;
+const pageUrl = (page: number) => page === 1 ? firstPageUrl : prefixUrl + page;
 
 if (totalPage === 1) {
   pager = [];
@@ -47,7 +49,7 @@ if (totalPage === 1) {
 <div class="flex items-center justify-center my-16 text-skin-base">
   {
     pager.length > 4 && (
-      <a href={prefixUrl + "1"} style="font-size:18px;line-height:32px;">
+      <a href={pageUrl(1)} style="font-size:18px;line-height:32px;">
         <i class="ri-skip-left-line"></i>
       </a>
     )
@@ -58,13 +60,13 @@ if (totalPage === 1) {
       currentPage === i ? (
         <a
           class="text-skin-active"
-          href={prefixUrl + i}
+          href={pageUrl(i)}
           style="line-height:32px;"
         >
           {i}
         </a>
       ) : (
-        <a href={prefixUrl + i} style="line-height:32px;">
+        <a href={pageUrl(i)} style="line-height:32px;">
           {i}
         </a>
       )
@@ -73,7 +75,7 @@ if (totalPage === 1) {
   {
     pager.length > 4 && (
       <a
-        href={prefixUrl + totalPage}
+        href={pageUrl(totalPage)}
         style="font-size:18px;line-height:32px;"
       >
         <i class="ri-skip-right-line"></i>

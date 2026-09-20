@@ -1,0 +1,30 @@
+---
+import {site} from '@/consts';
+import PostView from '@/components/PostView.astro';
+import IndexPage from '@/layouts/IndexPage.astro';
+import Pagination from '@/components/Pagination.astro';
+import Search from '@/components/Search.astro';
+import {getCollectionByName} from '@/utils/getCollectionByName';
+import {orderBySticky} from '@/utils/orderBySticky';
+import getUrl from '@/utils/getUrl';
+
+export async function getStaticPaths({paginate}) {
+  const posts = await getCollectionByName('blog');
+  return paginate(orderBySticky(posts), {pageSize: site.postPageSize});
+}
+
+const {page} = Astro.props;
+---
+
+<IndexPage>
+  <Search home />
+  <div id="blog-postList" data-search-idle>
+    {page.data.map(blog => <PostView blog={blog} />)}
+    {page.lastPage > 1 && <Pagination
+      currentPage={page.currentPage}
+      totalPage={page.lastPage}
+      prefixUrl={getUrl('/blog/')}
+      firstPageUrl={getUrl('/blog')}
+    />}
+  </div>
+</IndexPage>

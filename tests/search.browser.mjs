@@ -73,7 +73,29 @@ try {
   await page.screenshot({path: '/tmp/yi-how-to-search-mobile.png', fullPage: true});
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   assert.deepEqual(errors, []);
-  assert.equal((await page.goto(`${base}/`)).status(), 200);
+  for (const path of ['/', '/about']) {
+    assert.equal((await page.goto(`${base}${path}`)).status(), 200);
+    const about = page.locator('#about-content');
+    assert(await about.isVisible());
+    assert((await about.innerText()).includes('Junjie Fang'));
+    assert.equal(await page.locator('#blog-postList').count(), 0);
+    assert((await query('嵊州')).includes('绍兴旅游记'));
+    assert(await about.isHidden());
+    await input.fill('');
+    assert(await about.isVisible());
+    await input.fill(' ');
+    assert(await about.isHidden());
+    await input.fill('');
+    await page.goto(`${base}${path}?q=tmux`);
+    await page.waitForFunction(() => document.querySelector('#resultsList').textContent.includes('tmux'));
+    assert(await about.isHidden());
+    await input.fill('');
+    assert(await about.isVisible());
+  }
+  assert.equal((await page.goto(`${base}/papers/paper-glossary`)).status(), 200);
+  assert.equal((await page.goto(`${base}/blog/2`)).status(), 200);
+  await page.locator('#blog-postList a[href="/blog"]').filter({hasText: /^\s*1\s*$/}).click();
+  assert.equal(new URL(page.url()).pathname, '/blog');
   assert(await page.locator('#blog-postList').isVisible());
   assert((await query('嵊州')).includes('绍兴旅游记'));
   assert(await page.locator('#blog-postList').isHidden());

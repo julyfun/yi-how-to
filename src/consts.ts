@@ -74,7 +74,7 @@ export const categories = [
   {
     name: "Blog",
     iconClass: "ri-draft-line",
-    href: "/",
+    href: "/blog",
   },
   // {
   //   name: "Memos",

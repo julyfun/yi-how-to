@@ -1,27 +1,5 @@
 ---
-import PostView from '@/components/PostView.astro'
-import IndexPage from '@/layouts/IndexPage.astro'
-import {getCollectionByName} from "@/utils/getCollectionByName";
-import {orderBySticky} from "@/utils/orderBySticky";
-import {site} from '@/consts'
-import Pagination from "@/components/Pagination.astro";
-import {ceil, divide} from 'lodash-es'
-import Search from '@/components/Search.astro';
-
-let currentPage = 1
-let blogs = await getCollectionByName("blog");
-let totalPage = ceil(divide(blogs.length, site.postPageSize))
-
-let sortedPosts = orderBySticky(blogs);
-if (sortedPosts.length > site.postPageSize) {
-  sortedPosts = sortedPosts.splice(0, site.postPageSize);
-}
+import AboutPage from '@/layouts/AboutPage.astro';
 ---
 
-<IndexPage>
-  <Search home />
-  <div id="blog-postList">
-    {sortedPosts.map(blog => <PostView blog={blog}></PostView>)}
-    {totalPage > 1 ? <Pagination currentPage={currentPage} totalPage={totalPage} /> : ''}
-  </div>
-</IndexPage>
+<AboutPage />
