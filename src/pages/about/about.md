@@ -150,7 +150,15 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
     <div class="entry-title">Head Coach, Informatics Competition</div>
     <div class="entry-sub">SJTU Affiliated High School (Minhang) · Shanghai</div>
   </div>
-  <div class="entry-date">Oct. 2022 – Present</div>
+  <div class="entry-date">Oct. 2022 – Aug. 2026</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">AI Intern - Pre-Training</div>
+    <div class="entry-sub">Shanghai Noematrix Intelligence Technology Co., Ltd. · Shanghai</div>
+  </div>
+  <div class="entry-date">Nov. 2025 – Present</div>
 </div>
 </section>
 
