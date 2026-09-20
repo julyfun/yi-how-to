@@ -23,8 +23,6 @@ comment: false
 .cv .award-name { flex: 1; }
 .cv .award-level { font-weight: 600; color: #b8860b; white-space: nowrap; }
 .cv .award-date { opacity: 0.6; white-space: nowrap; }
-.cv .skills-grid { display: grid; grid-template-columns: 7rem 1fr; gap: 0.4rem 1rem; }
-.cv .skills-label { font-weight: 600; opacity: 0.75; }
 .cv blockquote { border-left: 3px solid #aaa; margin: 0 0 0; padding: 0.6rem 1rem; opacity: 0.85; }
 .cv .paper { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
 .cv .paper-thumb { width: 160px; flex-shrink: 0; border-radius: 4px; overflow: hidden; }
@@ -103,14 +101,6 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title">SJTU-RoboMaster-Team.github.io <img src="https://img.shields.io/github/stars/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io" alt="stars"></div>
-    <div class="entry-sub">Our technical blog.</div>
-  </div>
-  <div class="entry-date">Dec. 2024</div>
-</div>
-
-<div class="entry">
-  <div class="entry-main">
     <div class="entry-title">RoboPocket</div>
     <div class="entry-sub">An online inference & finetuning system equipped with portable manipulation interface.</div>
   </div>
@@ -121,14 +111,6 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <div class="entry-main">
     <div class="entry-title">robotoy<img src="https://img.shields.io/github/stars/julyfun/robotoy" alt="stars"></div>
     <div class="entry-sub">A new fast interpolation method and utilities for robot policy rollout.</div>
-  </div>
-  <div class="entry-date">Feb. 2025</div>
-</div>
-
-<div class="entry">
-  <div class="entry-main">
-    <div class="entry-title">How-to<img src="https://img.shields.io/github/stars/julyfun/how-to" alt="stars"></div>
-    <div class="entry-sub">Detailed notes and projects on technology and courses including CS336 and CS285.</div>
   </div>
   <div class="entry-date">Feb. 2025</div>
 </div>
@@ -203,12 +185,22 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 </section>
 
 <section>
-<h2>Technical Skills</h2>
-<div class="skills-grid">
-  <span class="skills-label">Languages</span>
-  <span>C++, Python, Rust, C, Swift</span>
-  <span class="skills-label">Frameworks</span>
-  <span>ROS, Unity, PyTorch, Coding Agents</span>
+<h2>Miscellaneous</h2>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">SJTU-RoboMaster-Team.github.io <img src="https://img.shields.io/github/stars/SJTU-RoboMaster-Team/SJTU-RoboMaster-Team.github.io" alt="stars"></div>
+    <div class="entry-sub">Our technical blog.</div>
+  </div>
+  <div class="entry-date">Dec. 2024</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">How-to<img src="https://img.shields.io/github/stars/julyfun/how-to" alt="stars"></div>
+    <div class="entry-sub">Detailed notes and projects on technology and courses including CS336 and CS285.</div>
+  </div>
+  <div class="entry-date">Feb. 2025</div>
 </div>
 </section>
 
