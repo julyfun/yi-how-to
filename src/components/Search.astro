@@ -19,6 +19,7 @@ const {home = false, hideTitle = false} = Astro.props;
 </div>
 <style is:global>
   #resultsList mark { background: transparent; color: inherit; font-weight: 700; text-decoration: underline; }
+  #resultsList article > a:first-child mark { font-weight: inherit; }
   #resultsList a, #resultsList p { overflow-wrap: anywhere; }
 </style>
 <script>
@@ -93,7 +94,7 @@ const {home = false, hideTitle = false} = Astro.props;
           const row = document.createElement('article');
           row.className = 'my-5 border-b border-current/20 pb-4';
           const link = document.createElement('a');
-          link.className = 'text-xl font-bold hover:underline';
+          link.className = 'text-xl font-medium hover:underline';
           link.href = articleUrl(data.url, location.origin);
           highlightText(link, data.meta.title || data.url, currentQuery);
           row.append(link);
