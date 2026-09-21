@@ -166,18 +166,20 @@ menu {
   background-color: rgba(var(--color-text), .2);
 }
 
-/* 重写markdown样式 */
-.markdown-body {
-  background-color: inherit;
-}
-
-.markdown-body p,
 li,
 ul,
 ol,
 div,
 a {
   line-height: 26px;
+}
+
+.markdown-body :is(p, li, ul, ol, div, a) {
+  line-height: 1.75;
+}
+
+.markdown-body :is(h2, h3, h4) + p {
+  margin-top: 0;
 }
 
 /* 修改waline评论侧边栏样式 */

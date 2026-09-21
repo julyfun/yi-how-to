@@ -76,7 +76,7 @@
    --color-prettylights-syntax-brackethighlighter-angle: #57606a;
    --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
    --color-prettylights-syntax-constant-other-reference-link: #0a3069;
-   --color-fg-default: rgb(var(--color-text));
+   --color-fg-default: #45454a;
    --color-fg-muted: #57606a;
    --color-fg-subtle: #6e7781;
    --color-canvas-default: #ffffff;
@@ -96,10 +96,10 @@
    margin: 0;
    padding: 0;
    color: var(--color-fg-default);
-   background-color: var(--color-canvas-default);
-   font-family: inherit;
+   background-color: inherit;
+   font-family: "Century Gothic", "PingFang SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
    font-size: 16px;
-   line-height: 1.5;
+   line-height: 1.75;
    word-wrap: break-word;
  }
 
@@ -357,10 +357,12 @@
  }
 
  .markdown-body h2 {
-   font-weight: 500;
-   padding-bottom: .3em;
+   margin-top: 48px;
+   margin-bottom: 24px;
+   padding-bottom: 0;
    font-size: 1.5em;
-   border-bottom: 1px solid var(--color-border-muted);
+   line-height: 1.3333333333;
+   border-bottom: 0;
  }
 
  .markdown-body h3 {
@@ -385,8 +387,7 @@
  }
 
  .markdown-body p {
-   margin-top: 0;
-   margin-bottom: 10px;
+   margin: 20px 0;
  }
 
  .markdown-body blockquote {
@@ -629,7 +630,6 @@
    outline: none;
  }
 
- .markdown-body p,
  .markdown-body blockquote,
  .markdown-body ul,
  .markdown-body ol,
