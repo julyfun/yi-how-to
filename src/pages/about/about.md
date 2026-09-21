@@ -121,6 +121,14 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="entry">
   <div class="entry-main">
+    <div class="entry-title">AI Intern - Pre-Training</div>
+    <div class="entry-sub">Shanghai Noematrix Intelligence Technology Co., Ltd. · Shanghai</div>
+  </div>
+  <div class="entry-date">Nov. 2025 – Present</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
     <div class="entry-title">Software Development Intern</div>
     <div class="entry-sub">Shanghai Wuji Technology Co., Ltd. · Shanghai</div>
   </div>
@@ -135,13 +143,6 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <div class="entry-date">Oct. 2022 – Aug. 2026</div>
 </div>
 
-<div class="entry">
-  <div class="entry-main">
-    <div class="entry-title">AI Intern - Pre-Training</div>
-    <div class="entry-sub">Shanghai Noematrix Intelligence Technology Co., Ltd. · Shanghai</div>
-  </div>
-  <div class="entry-date">Nov. 2025 – Present</div>
-</div>
 </section>
 
 <section>
