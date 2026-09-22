@@ -73,6 +73,36 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 </section>
 
 <section>
+<h2>Experience</h2>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">AI Intern - Pre-Training</div>
+    <div class="entry-sub">Shanghai Noematrix Intelligence Technology Co., Ltd. · Shanghai</div>
+  </div>
+  <div class="entry-date">Nov. 2025 – Present</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">Software Development Intern</div>
+    <div class="entry-sub">Shanghai Wuji Technology Co., Ltd. · Shanghai</div>
+  </div>
+  <div class="entry-date">Jun. – Aug. 2024</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title">Head Coach, Informatics Competition</div>
+    <div class="entry-sub">SJTU Affiliated High School (Minhang) · Shanghai</div>
+  </div>
+  <div class="entry-date">Oct. 2022 – Aug. 2026</div>
+</div>
+
+</section>
+
+
+<section>
 <h2>Research</h2>
 
 <div class="paper">
@@ -114,35 +144,6 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   </div>
   <div class="entry-date">Feb. 2025</div>
 </div>
-</section>
-
-<section>
-<h2>Experience</h2>
-
-<div class="entry">
-  <div class="entry-main">
-    <div class="entry-title">AI Intern - Pre-Training</div>
-    <div class="entry-sub">Shanghai Noematrix Intelligence Technology Co., Ltd. · Shanghai</div>
-  </div>
-  <div class="entry-date">Nov. 2025 – Present</div>
-</div>
-
-<div class="entry">
-  <div class="entry-main">
-    <div class="entry-title">Software Development Intern</div>
-    <div class="entry-sub">Shanghai Wuji Technology Co., Ltd. · Shanghai</div>
-  </div>
-  <div class="entry-date">Jun. – Aug. 2024</div>
-</div>
-
-<div class="entry">
-  <div class="entry-main">
-    <div class="entry-title">Head Coach, Informatics Competition</div>
-    <div class="entry-sub">SJTU Affiliated High School (Minhang) · Shanghai</div>
-  </div>
-  <div class="entry-date">Oct. 2022 – Aug. 2026</div>
-</div>
-
 </section>
 
 <section>
