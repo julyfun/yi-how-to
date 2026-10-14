@@ -6,7 +6,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics.astro';
 import BusuanziAnalytics from '@/components/BusuanziAnalytics.astro';
 import getUrl from "@/utils/getUrl";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const {description = site.description, mathjax = false, mermaid = false, ogImage:ogimage = ''} = Astro.props
+const {description = site.description, mathjax = false, ogImage:ogimage = ''} = Astro.props
 let ogImage =  ogimage || new URL(Astro.url.pathname, Astro.site?.href).href;
 let title = Astro.props.title ? `${Astro.props.title} - ${site.title}` : site.title;
 ---
@@ -51,10 +51,25 @@ let title = Astro.props.title ? `${Astro.props.title} - ${site.title}` : site.ti
     mathjax && <script async type="text/javascript" src=`${getUrl("/load-mathjax.js")}`></script>
   }
 
-  {
-    mermaid &&
-    <script async type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/mermaid/11.16.0/mermaid.min.js"></script>
-  }
+  <script>
+    async function renderMermaid() {
+      const nodes = document.querySelectorAll<HTMLElement>('pre.mermaid:not([data-processed])');
+      if (!nodes.length) return;
+
+      try {
+        const {default: mermaid} = await import('mermaid');
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default',
+        });
+        await mermaid.run({nodes});
+      } catch (error) {
+        console.error('Failed to render Mermaid diagrams:', error);
+      }
+    }
+
+    void renderMermaid();
+  </script>
   <GoogleAnalytics />
   <UmamiAnalytics />
   <BusuanziAnalytics/>

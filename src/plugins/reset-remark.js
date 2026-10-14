@@ -10,7 +10,8 @@ export function resetRemark() {
 
       if (node.type === 'code' && node.lang === 'mermaid') {
         node.type = 'html'
-        node.value = '<pre class="mermaid">\n' + node.value + '</pre>'
+        const source = node.value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        node.value = '<pre class="mermaid">\n' + source + '</pre>'
       }
     })
   }
