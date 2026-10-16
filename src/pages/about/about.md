@@ -112,8 +112,22 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   <div class="paper-body">
     <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
     <div class="paper-authors">Junjie Fang*, Wendi Chen*, Han Xue*, Fangyuan Zhou*, Tian Le, Yi Wang, Yuting Zhang, Jun Lv, Chuan Wen, Cewu Lu</div>
+    <p class="paper-desc">RoboPocket enables robot-free online DAgger with a consumer smartphone. With our remote inference framework, this method boosts sample efficiency by up to 2x, closing the learning loop in minutes.</p>
     <div class="paper-desc">CoRL 2026</div>
     <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Webpage</a> <span class="paper-link-sep">|</span> <a href="https://arxiv.org/abs/2603.05504" target="_blank">arXiv</a></div>
+  </div>
+</div>
+
+<div class="paper">
+  <div class="paper-thumb">
+    <img src="https://how-to-1258460161.cos.ap-shanghai.myqcloud.com/how-to/noe-0_preview_blog.gif" alt="Noe-0 research preview" />
+  </div>
+  <div class="paper-body">
+    <div class="paper-title">Noe-0 Research Preview: Breaking Through the Dexterity Bottleneck with End-to-End Non-Embodied Data</div>
+    <div class="paper-authors">Noematrix Team</div>
+    <p class="paper-desc">Noe-0 brings together data collection, models, and infrastructure for embodied intelligence. It uses non-embodied data throughout pre-training and post-training, combining action learning with implicit world modeling to preserve dexterity and improve transfer.</p>
+    <div class="paper-desc">Research Blog · 2026</div>
+    <div class="paper-links"><a href="https://lab.noematrix.ai/blog/1-noe-0-research-preview/" target="_blank">Blog</a></div>
   </div>
 </div>
 </section>
