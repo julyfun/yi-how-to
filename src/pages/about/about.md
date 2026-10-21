@@ -107,19 +107,6 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="paper">
   <div class="paper-thumb">
-    <img src="https://how-to-1258460161.cos.ap-shanghai.myqcloud.com/how-to/20260612220526105.png" alt="RoboPocket teaser" />
-  </div>
-  <div class="paper-body">
-    <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
-    <div class="paper-authors">Junjie Fang*, Wendi Chen*, Han Xue*, Fangyuan Zhou*, Tian Le, Yi Wang, Yuting Zhang, Jun Lv, Chuan Wen, Cewu Lu</div>
-    <p class="paper-desc">RoboPocket enables robot-free online DAgger with a consumer smartphone. With our remote inference framework, this method boosts sample efficiency by up to 2x, closing the learning loop in minutes.</p>
-    <div class="paper-desc">CoRL 2026</div>
-    <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Webpage</a> <span class="paper-link-sep">|</span> <a href="https://arxiv.org/abs/2603.05504" target="_blank">arXiv</a></div>
-  </div>
-</div>
-
-<div class="paper">
-  <div class="paper-thumb">
     <img src="https://how-to-1258460161.cos.ap-shanghai.myqcloud.com/how-to/noe-0_preview_blog.gif" alt="Noe-0 research preview" />
   </div>
   <div class="paper-body">
@@ -131,6 +118,19 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   </div>
 </div>
 </section>
+
+<div class="paper">
+  <div class="paper-thumb">
+    <img src="https://how-to-1258460161.cos.ap-shanghai.myqcloud.com/how-to/20260612220526105.png" alt="RoboPocket teaser" />
+  </div>
+  <div class="paper-body">
+    <div class="paper-title">RoboPocket: Improve Robot Policies Instantly with Your Phone</div>
+    <div class="paper-authors">Junjie Fang*, Wendi Chen*, Han Xue*, Fangyuan Zhou*, Tian Le, Yi Wang, Yuting Zhang, Jun Lv, Chuan Wen, Cewu Lu</div>
+    <p class="paper-desc">RoboPocket enables robot-free online DAgger with a consumer smartphone. With our remote inference framework, this method boosts sample efficiency by up to 2x, closing the learning loop in minutes.</p>
+    <div class="paper-desc">CoRL 2026</div>
+    <div class="paper-links"><a href="https://robo-pocket.github.io" target="_blank">Webpage</a> <span class="paper-link-sep">|</span> <a href="https://arxiv.org/abs/2603.05504" target="_blank">arXiv</a></div>
+  </div>
+</div>
 
 <section>
 <h2>Projects</h2>
