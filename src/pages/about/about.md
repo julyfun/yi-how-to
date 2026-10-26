@@ -45,7 +45,7 @@ comment: false
 
 <div class="cv">
 
-<h1>Junjie Fang | 方俊杰</h1>
+<h1>Junjie Fang</h1>
 <p class="subtitle">Graduate Student · MVIG Lab, Shanghai Jiao Tong University</p>
 
 <p>
@@ -213,11 +213,28 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
 
 <div class="entry">
   <div class="entry-main">
-    <div class="entry-title">How-to<img src="https://img.shields.io/github/stars/julyfun/how-to" alt="stars"></div>
-    <div class="entry-sub">Detailed notes and projects on technology and courses including CS336 and CS285.</div>
+    <div class="entry-title">how-to & yi-how-to<img src="https://img.shields.io/github/stars/julyfun/how-to" alt="stars"></div>
+    <div class="entry-sub">Detailed notes and projects on technology and courses including CS336 and CS285, auto-deployed on this site every 10min, ~40k LoC.</div>
   </div>
   <div class="entry-date">Feb. 2025</div>
 </div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title"><a href="https://github.com/julyfun/jst.fish">jst.fish</a></div>
+    <div class="entry-sub">Improve your efficiency in fish shell.</div>
+  </div>
+  <div class="entry-date">Active project</div>
+</div>
+
+<div class="entry">
+  <div class="entry-main">
+    <div class="entry-title"><a href="https://github.com/julyfun/jfmfoi">jfmfoi</a></div>
+    <div class="entry-sub">My detailed OI lessons plan in Typst.</div>
+  </div>
+  <div class="entry-date">Active project</div>
+</div>
+
 </section>
 
 </div>
