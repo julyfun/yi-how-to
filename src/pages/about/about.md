@@ -36,6 +36,11 @@ comment: false
 .cv .paper-links a:hover { text-decoration: underline; }
 .cv .paper-link-sep { opacity: 0.4; margin: 0 0.3rem; }
 .cv .paper-link-tba { opacity: 0.5; }
+.cv .social-links p { margin: 0 0 0.5rem; }
+.cv .social-links a { display: inline-flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none; vertical-align: middle; }
+.cv .social-links a:hover { text-decoration: underline; }
+.cv .social-links i { width: 24px; font-size: 20px; line-height: 1; text-align: center; }
+.cv .social-links img { width: 24px; height: 24px; object-fit: contain; }
 @media (max-width: 540px) { .cv .paper { flex-direction: column; } .cv .paper-thumb { width: 100%; } }
 @media (max-width: 540px) {
   .cv .entry, .cv .award-row { flex-direction: column; gap: 0.1rem; }
@@ -234,6 +239,15 @@ I am a graduate student in Electronic and Information Engineering at Shanghai Ji
   </div>
   <div class="entry-date">Active project</div>
 </div>
+
+</section>
+
+<section class="social-links">
+<h2>Social</h2>
+
+<p><a href="https://www.douyin.com/user/MS4wLjABAAAAEC6uDKxMWQik_EKx_3ymfCgJsd1zypxgilwR9jQLWCDExH3q6yURfYIynfxbP6Iw" target="_blank" rel="noopener noreferrer"><i class="ri-tiktok-line" aria-hidden="true"></i>菲比是拉拉</a> . ENDFIELD strategy guide.</p>
+<p><a href="https://www.xiaohongshu.com/user/profile/60f02ce600000000200290ab" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/xiaohongshu/555/ddd" alt="" />菲比是拉拉</a> . Works &amp; life.</p>
+<p><a href="https://space.bilibili.com/545280959" target="_blank" rel="noopener noreferrer"><i class="ri-bilibili-line" aria-hidden="true"></i>菲比是拉拉</a> . Random topics.</p>
 
 </section>
 
